@@ -26,8 +26,6 @@ pipeline {
                             echo "Installing virtualenv..."
                             pip install virtualenv
                         fi
-
-                        
                         '''
                     }
                 }
@@ -40,8 +38,6 @@ pipeline {
                     script {
                         // Install virtualenv if not available
                         sh '''#!/bin/bash
-                        
-
                         # Delete previously built virtualenv and create a new one
                         rm -rf $PYENV_HOME
                         virtualenv $PYENV_HOME
