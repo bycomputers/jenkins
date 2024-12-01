@@ -1,0 +1,3 @@
+GITBRANCH=jenkins-workshop
+GITURL=github.com/bycomputers/jenkins.git
+GITUSERNAME=bycomputers
