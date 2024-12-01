@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Setup Python Environment and Install Dependencies') {
             steps {
                 dir("${PROJECT_HOME}") {
                     script {
@@ -26,18 +26,7 @@ pipeline {
                             echo "Installing virtualenv..."
                             pip install virtualenv
                         fi
-                        '''
-                    }
-                }
-            }
-        }
 
-        stage('Install Dependencies') {
-            steps {
-                dir("${PROJECT_HOME}") {
-                    script {
-                        // Install virtualenv if not available
-                        sh '''#!/bin/bash
                         # Delete previously built virtualenv and create a new one
                         rm -rf $PYENV_HOME
                         virtualenv $PYENV_HOME
@@ -50,6 +39,7 @@ pipeline {
                 }
             }
         }
+        
 
         stage('Run Flask Application') {
             steps {
