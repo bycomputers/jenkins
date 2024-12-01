@@ -34,22 +34,22 @@ pipeline {
 
         stage('paralel') {
             parallel {
-                steps {
-                    dir("${PROJECT_HOME}") {
-                        script {
-                            // Install virtualenv if not available
-                            sh '''#!/bin/bash
-                            
-                            '''
-                        }
-                    }
-                }
-        
-                stage('Install Dependencies') {
+                stage('Step 1') { // שלב ראשון
                     steps {
                         dir("${PROJECT_HOME}") {
                             script {
-                                // Install virtualenv if not available
+                                // Example script
+                                sh '''#!/bin/bash
+                                echo "Running Step 1"
+                                '''
+                            }
+                        }
+                    }
+                }
+                stage('Install Dependencies') { // שלב שני
+                    steps {
+                        dir("${PROJECT_HOME}") {
+                            script {
                                 sh '''#!/bin/bash
                                 # Delete previously built virtualenv and create a new one
                                 rm -rf $PYENV_HOME
